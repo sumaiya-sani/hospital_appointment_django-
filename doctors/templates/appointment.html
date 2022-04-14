@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load  static %}
+
+{% block contant %}
+
+
+
+
+<div class="container" style="padding-top:150px;padding-left: 200px;">
+  
+<div class="row justify-content-center align-items-center">
+  
+
+ <div class="col col-2">
+    <div class="card" style="width: 18rem;">
+        <img src="{{ doctors.doctor_picture.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{doctors.name.first_name }}</h5>
+          <p class="card-text">{{doctors.describe}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col col-10">
+      <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 border p-4 shadow bg-light">
+                <div class="col-12">
+                    <h3 class="fw-normal text-secondary fs-4 text-uppercase mb-4">Appointment form</h3>
+                </div>
+                {% if first_name %} 
+                <div class="container bg-light text-dark">
+                  <h3> Your Name :  </h3> <h4> {{first_name}} {{last_name}} </h4> <br> 
+                  <h3> Your Email  :  </h3> <h4> {{phone_namber}}</h4> <br> 
+                  <h3> The Date  :  </h3> <h4> {{email}}</h4> <br> 
+                  <h3> The Time  :  </h3> <h4> {{date}}</h4> <br>
+
+                  
+                  
+                </div>
+
+             
+
+                {% else %}
+                
+          
+                <form method="POST" action="">
+                  {% csrf_token %} 
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" placeholder="First Name" name="first-name">
+                        </div>
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" placeholder="Last Name"name="last-name" >
+                        </div>
+                        <div class="col-md-6">
+                            <input type="tel" class="form-control" placeholder="Phone Number" name="phone-number" >
+                        </div>
+                        <div class="col-md-6">
+                            <input type="email" class="form-control" placeholder="Enter Email" name="email" >
+                        </div>
+                        <div class="col-md-6">
+                            <input type="date" class="form-control" placeholder="Enter Date" name="date" >
+                        </div>
+                        <div class="col-md-6">
+                            <input type="time" class="form-control" placeholder="Enter Email" name="time" >
+                        </div>
+                        
+                        <div class="col-12">
+                            <textarea class="form-control" placeholder="Message"name="massage"  ></textarea>
+                        </div>
+                        <div class="col-12 mt-5">                        
+                            <button type="submit" class="btn btn-primary float-end">Book Appointment</button>
+                            <button type="button" class="btn btn-outline-secondary float-end me-2">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    </div>
+ 
+    
+</div>
+
+</div>
+</div>
+
+
+
+
+{% endblock %}
+
+
