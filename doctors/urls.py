@@ -10,8 +10,8 @@ urlpatterns = [
     path('appontment/<int:pk>/',views.appointment,name="appointment"),
     path('home/',views.home,name="home"),
     path('sucess/<int:pk>/',views.appointment,name="appointment"),
-
-    
+    path('doctors_api/',views.doctors_api),
+    path('doctor/<int:id>/',views.doctor),
 
     
     ]
